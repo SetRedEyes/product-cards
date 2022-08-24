@@ -10,22 +10,32 @@ const Main = () => {
   const [modalData, setModalData] = useState({} as IProduct)
 
   const buyProduct = (product: IProduct) => {
+    setIsOpen(true)
     setModalData(product)
-    setIsOpen((prevState) => !prevState)
   }
 
   const buyCheapest = () => {
     setModalData(getChepeastProduct())
-    setIsOpen((prevState) => !prevState)
+    setIsOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsOpen(false)
   }
   return (
-    <div className="main">
-      {products.map((p) => (
-        <ProductCard key={p.name} product={p} buyProduct={buyProduct}/>
-      ))}
-      <button onClick={buyCheapest }>Buy cheapest</button>
-      {isOpen && <Modal product={modalData} />}
-    </div>
+    <>
+      <div className='main'>
+        <div className='product-board'>
+          {products.map((p) => (
+            <ProductCard key={p.name} product={p} buyProduct={buyProduct} />
+          ))}
+        </div>
+        <button className='main__cheapest-button' onClick={buyCheapest}>
+          Buy cheapest
+        </button>
+      </div>
+      <Modal product={modalData} closeModal={closeModal} isOpen={isOpen} />
+    </>
   )
 }
 
