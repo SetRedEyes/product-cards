@@ -8,7 +8,7 @@ interface ModalProps {
 
 const Modal = ({ product, closeModal, isOpen }: ModalProps) => {
   const { name, category, price } = product
- 
+
   return (
     <div className={isOpen ? 'modal active' : 'modal'} onClick={closeModal}>
       <div

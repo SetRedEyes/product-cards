@@ -5,6 +5,7 @@ interface FormProps {
   isOpen: boolean
   closeModal:() => void
 }
+
 const Form = ({ isOpen, closeModal }: FormProps) => {
   const [username, setUsername] = useState('')
   const [phone, setPhone] = useState('')
