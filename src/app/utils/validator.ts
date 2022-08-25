@@ -1,7 +1,9 @@
-import { State } from "./IState"
+interface Object {
+  [key: string]: string
+}
 
-export function validator(data: State, config: any) {
-  const errors: State = {}
+export function validator(data: Object, config: any) {
+  const errors: Object = {}
 
   function validate(validateMethod: string, data: string, config: any) {
     let statusValidate
@@ -26,11 +28,11 @@ export function validator(data: State, config: any) {
         break
       }
       case 'onlyLetters': {
-        const lettersRegExp =/^[A-Za-z]+$/
+        const lettersRegExp = /^[A-Za-z]+$/
         statusValidate = !lettersRegExp.test(data)
         break
       }
-   
+
       default:
         break
     }

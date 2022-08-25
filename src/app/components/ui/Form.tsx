@@ -63,9 +63,8 @@ const Form = ({ isOpen, closeModal }: FormProps) => {
     e.preventDefault()
     const isValidPhone = validatePhone()
     const isValidUsername = validateUsername()
-    if (!isValidPhone && !isValidUsername) return
+    if (!isValidPhone || !isValidUsername) return
     console.log('DATA', { username, phone })
-    closeModal()
   }
 
   return (
