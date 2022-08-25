@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useProduct } from '../../hooks/useProduct'
 import { IProduct } from '../../models/IProduct'
 import Modal from '../ui/Modal'

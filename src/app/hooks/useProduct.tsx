@@ -49,7 +49,7 @@ export const ProductProvider = ({ children }: ProductContextProps) => {
     <ProductContext.Provider
       value={{
         products,
-        getChepeastProduct,
+        getChepeastProduct
       }}
     >
       {!isLoading && products.length ? children : 'LOADING'}

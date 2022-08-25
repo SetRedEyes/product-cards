@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { validator } from '../../utils/validator'
 import TextField from './textField'
 interface FormProps {
   isOpen: boolean
-  closeModal:() => void
 }
 
-const Form = ({ isOpen, closeModal }: FormProps) => {
+const Form = ({ isOpen}: FormProps) => {
   const [username, setUsername] = useState('')
   const [phone, setPhone] = useState('')
   const [usernameErrors, setUsernameErrors] = useState('')
