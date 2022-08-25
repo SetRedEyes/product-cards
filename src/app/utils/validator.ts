@@ -1,5 +1,7 @@
-export function validator(data: any, config: any) {
-  const errors: { [key: string]: string } = {}
+import { State } from "./IState"
+
+export function validator(data: State, config: any) {
+  const errors: State = {}
 
   function validate(validateMethod: string, data: string, config: any) {
     let statusValidate

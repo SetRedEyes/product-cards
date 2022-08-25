@@ -5,7 +5,8 @@ interface TextFieldProps {
   name: string
   placeholder: string
   error?: string
-  onChange: (param1: { name: string; value: string }) => void
+  onChange: (value:string) => void
+  onBlur:()=>void
 }
 
 const TextField = ({
@@ -13,6 +14,7 @@ const TextField = ({
   name,
   placeholder,
   error,
+  onBlur,
   onChange
 }: TextFieldProps) => {
   const getInputClasses = () => {
@@ -28,8 +30,9 @@ const TextField = ({
         type='text'
         name={name}
         onChange={(e) =>
-          onChange({ name: e.target.name, value: e.target.value })
+          onChange( e.target.value )
         }
+        onBlur={onBlur}
       />
       {error && <div className='error-message'>{error}</div>}
     </div>
