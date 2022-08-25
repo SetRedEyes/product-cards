@@ -1,12 +1,19 @@
-import React, {  useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { validator } from '../../utils/validator'
 import TextField from './textField'
-
-const Form = () => {
+interface FormProps {
+  isOpen: boolean
+  closeModal:() => void
+}
+const Form = ({ isOpen, closeModal }: FormProps) => {
   const [username, setUsername] = useState('')
   const [phone, setPhone] = useState('')
   const [usernameErrors, setUsernameErrors] = useState('')
   const [phoneErrors, setPhoneErrors] = useState('')
+
+  useEffect(() => {
+    clearForm()
+  }, [isOpen])
 
   const usernameHandleChange = (value: string) => {
     setUsernameErrors('')
@@ -58,7 +65,7 @@ const Form = () => {
     const isValidUsername = validateUsername()
     if (!isValidPhone && !isValidUsername) return
     console.log('DATA', { username, phone })
-    clearForm()
+    closeModal()
   }
 
   return (

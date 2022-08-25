@@ -5,9 +5,9 @@ import Modal from '../ui/Modal'
 import ProductCard from '../ui/ProductCard'
 
 const Main = () => {
-  const { products, getChepeastProduct, getProductByName } = useProduct()
-  const [isOpen, setIsOpen] = useState(false)
+  const { products, getChepeastProduct } = useProduct()
   const [modalData, setModalData] = useState({} as IProduct)
+  const [isOpen, setIsOpen] = useState(false)
 
   const buyProduct = (product: IProduct) => {
     setIsOpen(true)

@@ -9,7 +9,6 @@ interface ProductContextProps {
 export interface IProductContext {
   products: IProduct[]
   getChepeastProduct: () => IProduct
-  getProductByName: (name: string) => IProduct | undefined
 }
 
 const ProductContext = React.createContext<IProductContext | null>(null)
@@ -40,11 +39,7 @@ export const ProductProvider = ({ children }: ProductContextProps) => {
     }
   }
 
-  const getProductByName = (name: string) => {
-    return products.find((p) => p.name === name)
-  }
-
-  const getChepeastProduct = ():IProduct => {
+  const getChepeastProduct = (): IProduct => {
     return products.reduce((prev, curr) =>
       prev.price < curr.price ? prev : curr
     )
@@ -55,7 +50,6 @@ export const ProductProvider = ({ children }: ProductContextProps) => {
       value={{
         products,
         getChepeastProduct,
-        getProductByName
       }}
     >
       {!isLoading && products.length ? children : 'LOADING'}

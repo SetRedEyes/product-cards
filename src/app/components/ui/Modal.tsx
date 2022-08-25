@@ -22,7 +22,7 @@ const Modal = ({ product, closeModal, isOpen }: ModalProps) => {
         <span className='modal-card__product-category'>{category}</span>
         <h2 className='modal-card__product-name'>{name}</h2>
         <div className='modal-card__product-price'>{price}</div>
-        <Form/>
+        <Form isOpen={isOpen} closeModal={closeModal}/>
       </div>
     </div>
   )
